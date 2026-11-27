@@ -4,6 +4,9 @@
 using namespace std;
 
 int main() {
+    const string invalidScoreMessage =
+        "Invalid score. Enter a value from 0 to 100.";
+
     string studentName;
     int studentCount = 0;
     double sumOfAverages = 0;
@@ -31,9 +34,9 @@ int main() {
                 if (cin.fail()) {
                     cin.clear();
                     cin.ignore(1000, '\n');
-                    cout << "Invalid score. Enter a value from 0 to 100." << endl;
+                    cout << invalidScoreMessage << endl;
                 } else if (score < 0 || score > 100) {
-                    cout << "Invalid score. Enter a value from 0 to 100." << endl;
+                    cout << invalidScoreMessage << endl;
                 } else {
                     break;
                 }
@@ -56,7 +59,8 @@ int main() {
         }
 
         cout << fixed << setprecision(1);
-        cout << studentName << ": average " << average << ", grade " << grade << endl;
+        cout << studentName << ": average " << average
+             << ", grade " << grade << endl;
 
         studentCount++;
         sumOfAverages += average;
